@@ -42,7 +42,7 @@ public class SpecialOfferController {
 			Model model,
 			@ModelAttribute SpecialOffer specialOffer) {
 		specialOfferService.save(specialOffer);
-		return "redirect:/";
+		return "redirect:/admin";
 	}
 //	update
 	@GetMapping("/offer/edit/{id}")
@@ -56,7 +56,7 @@ public class SpecialOfferController {
 	@PostMapping("/offer/edit/{id}")
 	public String update(Model model, @PathVariable("id") Integer id, @ModelAttribute SpecialOffer specialOffer) {
 		specialOfferService.save(specialOffer);
-		return "redirect:/pizze/" + specialOffer.getPizza().getId();
+		return "redirect:/admin/pizze/" + specialOffer.getPizza().getId();
 	}
 
 }

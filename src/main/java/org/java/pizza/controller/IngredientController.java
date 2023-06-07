@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
-@RequestMapping("/ingredients")
+@RequestMapping("/admin/ingredients")
 public class IngredientController {
 
 	@Autowired
@@ -30,7 +30,7 @@ public class IngredientController {
 	public String getIngredientIndex(Model model) {
 		List<Ingredient> ingredients = ingredientService.findAll();
 		model.addAttribute("ingredients", ingredients);
-		return "/ingredients/index-ingredient";
+		return "ingredients/index-ingredient";
 	}
 	
 	@GetMapping("/create")
@@ -44,10 +44,11 @@ public class IngredientController {
 	public String storeIngredient(@ModelAttribute Ingredient ingredient) {
 		ingredientService.save(ingredient);
 		for (Pizza pizza : ingredient.getPizze()) {
-			pizza.addIngredient(ingredient);
-			pizzaService.save(pizza);
+		    pizza.addIngredient(ingredient);
+		    pizzaService.save(pizza);
 		}
-		return "redirect:/ingredients";
+		return "redirect:/admin/ingredients";
+		
 	}	
 	
 	@GetMapping("/delete/{id}")
@@ -55,7 +56,7 @@ public class IngredientController {
 		Optional<Ingredient> optionalIngredient = ingredientService.findById(id);
 		Ingredient ingredient = optionalIngredient.get();
 		ingredientService.delete(ingredient);
-		return "redirect:/ingredients";
+		return "redirect:/admin/ingredients";
 	}
 	
 	@GetMapping("/update/{id}")
@@ -66,7 +67,7 @@ public class IngredientController {
 		Ingredient ingredient = ingredientService.findById(id).get();
 		model.addAttribute("pizze", pizze);
 		model.addAttribute("ingredient", ingredient);
-		return "/ingredients/update-ingredient";
+		return "ingredients/update-ingredient";
 	}
 	@PostMapping("/update/{id}")
 	public String update(
@@ -83,6 +84,6 @@ public class IngredientController {
 			pizza.addIngredient(ingredient);
 			pizzaService.save(pizza);
 		}
-		return "redirect:/ingredients";
+		return "redirect:/admin/ingredients";
 	}
 }

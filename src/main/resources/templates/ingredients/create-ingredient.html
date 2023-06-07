@@ -11,7 +11,7 @@
 		<h1>Crea ingrediente</h1>
 
 		<div class="" th:object="${ingredient}">
-			<form method="post">
+			<form method="post" th:action="@{/admin/ingredients/create}">
 				<div class="mb-3">
 					<label for="name" class="form-label">Nome</label>
 					<input type="text" class="form-control" id="name" name="name" th:value="*{name}">
@@ -29,7 +29,7 @@
 				
 				<div class="d-flex justify-content-between">
 					<button type="submit" class="btn btn-primary">Salva</button>
-					<a th:href="@{/}" class="btn btn-outline-primary">Esci</a>
+					<a th:href="@{/admin}" class="btn btn-outline-primary">Esci</a>
 				</div>
 
 			</form>

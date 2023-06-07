@@ -10,7 +10,8 @@
 	<main class="container my-3">
 		<h1>Modifica ingrediente</h1>
 		<div class="" th:object="${ingredient}">
-			<form method="post" th:action="@{/ingredients/update/{id} (id=*{id})}">
+			<form method="post" th:action="@{/admin/ingredients/update/{id} (id=*{id})}">
+			
 				<div class="mb-3">
 					<label for="name" class="form-label">Nome</label>
 					<input type="text" class="form-control" id="name" name="name" th:value="*{name}">

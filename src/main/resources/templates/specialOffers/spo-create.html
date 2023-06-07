@@ -13,7 +13,7 @@
 		<main class="mt-5">
 
 			<div class="" th:object="${specialOffer}">
-				<form method="post">
+				<form method="post" th:action="@{/offer/create}">
 					<div class="mb-3">
 						<input type="text" name="pizza" th:value="${pizza.id}" hidden>
 						<label for="name" class="form-label">Nome</label>
@@ -37,7 +37,7 @@
 					</div>
 					<div class="d-flex justify-content-between">
 						<button type="submit" class="btn btn-primary">Salva</button>
-						<a th:href="@{/}" class="btn btn-outline-primary">Esci</a>
+						<a th:href="@{/admin}" class="btn btn-outline-primary">Esci</a>
 					</div>
 
 				</form>
