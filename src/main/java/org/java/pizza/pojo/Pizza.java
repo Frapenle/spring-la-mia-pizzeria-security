@@ -7,6 +7,7 @@ import java.util.List;
 import org.hibernate.validator.constraints.URL;
 
 import io.micrometer.common.lang.NonNull;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -44,7 +45,7 @@ public class Pizza {
 	private boolean isNewPizza;
 
 	//	relationship
-	@OneToMany(mappedBy = "pizza")
+	@OneToMany(mappedBy = "pizza", cascade = CascadeType.ALL)
 	private List<SpecialOffer> specialOffers;
 	
 	@ManyToMany

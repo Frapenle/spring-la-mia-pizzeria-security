@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.format.annotation.NumberFormat;
 
 import io.micrometer.common.lang.NonNull;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

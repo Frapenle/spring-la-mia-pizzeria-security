@@ -76,7 +76,7 @@ public class PizzaController {
 		model.addAttribute("ingredients", ingredients);
 		return "pizza/create";
 	}
-	
+
 	@PostMapping("/admin/pizze/create")
 	public String storePizza(Model model,
 			@Valid @ModelAttribute Pizza pizza,
